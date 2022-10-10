@@ -1,5 +1,5 @@
-pages\GooglePage.class
 runners\Runner.class
 utilities\ReusableMethods$1.class
+pages\GooglePage.class
 stepDefinitions\GoogleUrunArama.class
 utilities\ReusableMethods.class
