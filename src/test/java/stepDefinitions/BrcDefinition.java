@@ -44,4 +44,9 @@ Assert.assertTrue(brcPage.loginSubmit.isDisplayed());
     public void kulllaniciSayfayiKapatir() {
         Driver.closeDriver();
     }
+
+    @Given("kullanici {string} ana sayfasinda")
+    public void kullaniciAnaSayfasinda(String istenenUrl) {
+        Driver.getDriver().get(ConfigReader.getProperty(istenenUrl));
+    }
 }
