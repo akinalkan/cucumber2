@@ -1,5 +1,7 @@
+stepDefinitions\BrcDefinition.class
 runners\Runner.class
 utilities\ReusableMethods$1.class
+pages\BrcPage.class
 pages\GooglePage.class
-stepDefinitions\GoogleUrunArama.class
+stepDefinitions\GoogleTrendyolMorhipoUrunAramaDefinition.class
 utilities\ReusableMethods.class

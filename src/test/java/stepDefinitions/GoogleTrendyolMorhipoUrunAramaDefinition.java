@@ -11,12 +11,12 @@ import utilities.ConfigReader;
 import utilities.Driver;
 import utilities.ReusableMethods;
 
-public class GoogleUrunArama {
+public class GoogleTrendyolMorhipoUrunAramaDefinition {
 
     int morhipoSonucSayisi;
     int trendyolSonucSayisi;
-    String morhipoTitle;
-    String trendyolTitle;
+    String morhipoHandle;
+    String trendyolHandle;
     GooglePage googlePage = new GooglePage();
 
     @Given("Google'a gidiniz")
@@ -45,7 +45,7 @@ public class GoogleUrunArama {
 
     @And("toplam urun sayisini aliniz")
     public void toplamUrunSayisiniAliniz() {
-        trendyolTitle = Driver.getDriver().getTitle();
+        trendyolHandle = Driver.getDriver().getWindowHandle();
         String aramaSonucu = googlePage.trendyolAramaSonucu.getText();
         String[] aramaArr = aramaSonucu.split(" ");
         trendyolSonucSayisi = Integer.parseInt(aramaArr[3]);
@@ -63,7 +63,7 @@ public class GoogleUrunArama {
 
     @And("makas aratiniz morhipo")
     public void makasAratinizMorhipo() {
-        morhipoTitle = Driver.getDriver().getTitle();
+        morhipoHandle = Driver.getDriver().getWindowHandle();
         googlePage.morhipoAramaKutusu.sendKeys("makas" + Keys.ENTER);
 
     }
@@ -88,24 +88,22 @@ public class GoogleUrunArama {
 
     @And("Once urun sayisi fazla olan siteyi kapatiniz")
     public void onceUrunSayisiFazlaOlanSiteyiKapatiniz() {
-        System.out.println("Trendyol Title : " + trendyolTitle);
-        System.out.println("Morhipo Title : " + morhipoTitle);
+
         System.out.println("Trendyol Urun Sayisi : " + trendyolSonucSayisi);
         System.out.println("Morhipo Urun Sayisi : " + morhipoSonucSayisi);
         if (morhipoSonucSayisi < trendyolSonucSayisi) {
-            ReusableMethods.switchToWindow(trendyolTitle);
-            Driver.getDriver().quit();
+            Driver.getDriver().switchTo().window(trendyolHandle).close();
+
 
         } else {
-            ReusableMethods.switchToWindow(morhipoTitle);
-            Driver.closeDriver();
+            Driver.getDriver().switchTo().window(morhipoHandle).close();
         }
 
     }
 
     @And("Sonra diger sayfayida kapatiniz")
     public void sonraDigerSayfayidaKapatiniz() {
-
+        ReusableMethods.waitFor(5);
         Driver.getDriver().quit();
     }
 
