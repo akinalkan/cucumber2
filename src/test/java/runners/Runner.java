@@ -6,9 +6,10 @@ import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
+        plugin={"html:target\\cucumber-reports.html"},
         features = "src/test/resources/features",
         glue = "stepDefinitions",
-        tags = "@Outline",//2 tagi ayni anada calistirmak isterseniz "@gp1 or @gp2" seklinde yazariz
+        tags = "@US007",//2 tagi ayni anada calistirmak isterseniz "@gp1 or @gp2" seklinde yazariz
         dryRun = false
 )
 

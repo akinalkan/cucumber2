@@ -1,9 +1,10 @@
-stepDefinitions\BrcDefinition.class
-pages\PracticeTC07Page.class
-runners\Runner.class
 utilities\ReusableMethods$1.class
 stepDefinitions\Practice_TC_07steps.class
 pages\BrcPage.class
 pages\GooglePage.class
 stepDefinitions\GoogleTrendyolMorhipoUrunAramaDefinition.class
 utilities\ReusableMethods.class
+stepDefinitions\BrcDefinition.class
+pages\PracticeTC07Page.class
+runners\Runner.class
+pages\AutoExercisePage.class
